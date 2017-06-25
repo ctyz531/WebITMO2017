@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Hello App Engine</title>
+<script src="jquery-2.1.0.min.js"></script>
+</head>
+
+<script>
+	$(function() {
+		$('#calc').click(function() {
+			var var1 = $('#var1').val();
+			var var2 = $('#var2').val();
+
+
+			$('#result').load("/myproject?task=1&var1=" + var1 + "&var2=" + var2);
+		});
+
+	});
+	
+	$(function() {
+		$('#roots').click(function() {
+			var var3 = $('#var3').val();
+			var var4 = $('#var4').val();
+			var var5 = $('#var5').val();
+			
+			$('#result2').load("/myproject?task=2&var3=" + var3 + "&var4=" + var4 + "&var5=" + var5);
+		})
+	})
+	
+	$(function() {
+		$('#matrix').click(function() {
+			$('#result3').load("/myproject?task=3");
+		})
+	})
+	
+	$(function() {
+		$('#matrixWithMin').click(function() {
+			$('#result4').load("/myproject?task=4");
+		})
+	})
+</script>
+
+<body>
+	<form>
+		<p>Введите числа:</p>
+		<input id="var1" type="text" /> 
+		<input id="var2" type="text" />
+	</form>
+	<button id="calc">Посчитать</button>
+	<p>
+		Результат операции: <b><span style="color: red" id="result"></span></b>
+	</p>
+	<hr>
+	
+	<form>
+		<p>Введите числа:</p>
+		<input id="var3" type="text" /> 
+		<input id="var4" type="text" />
+		<input id="var5" type="text" />
+	</form>
+	<button id="roots">Посчитать</button>
+	<p>
+		Результат операции: <b><span style="color: red" id="result2"></span></b>
+	</p>
+	<hr>
+	
+	<button id="matrix">Создать матрицу</button>
+	<p>
+		Результат операции: <br>
+	</p>	 
+	
+	<p style="color: red" id="result3">	
+	</p>	
+	
+	
+	<button id="matrixWithMin">Создать матрицу</button>
+	<p>
+		Результат операции: <br>
+	</p>	 
+	
+	<p style="color: red" id="result4">	
+	</p>
+	
+</body>
+</html>
